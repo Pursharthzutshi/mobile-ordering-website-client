@@ -100,8 +100,9 @@ const clearFilterValues = (e) =>{
 <div className = "flex flex-row gap-2">
 
 <label>Google</label>
-<input onChange={(e)=>{setName(e.target.value)}} value="Google" type="radio" name="mobile-name"/>
+<input onChange={(e)=>{setName(e.target.value)}} value="Google Pixel" type="radio" name="mobile-name"/>
 </div>
+
 <div className = "flex flex-row gap-2">
 
 <label>iPhone</label>
