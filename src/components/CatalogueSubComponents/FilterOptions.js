@@ -5,11 +5,41 @@ import "../../App.css"
 function FilterOptions({setName,setType,setLowPrice,setHighPrice,setProcessor,setMemory,setOS}){
 
 
+const clearFilterValues = (e) =>{
+    e.preventDefault()
+    const allRadioButtons = document.querySelectorAll("input");
+
+    for(let i =0 ; i < allRadioButtons.length;i++){
+        if(allRadioButtons[i].checked = true){
+            allRadioButtons[i].checked = false
+            setName("");
+            setType("");
+            setHighPrice("");
+            setProcessor("")
+            setMemory("");
+            setOS("");
+        }
+         
+    }
+
+
+}
+
     return(
         <div className="flex flex-col gap-4 pb-6">
             <h2>Filter Options</h2>
+            <input placeholder="Search Name" onChange={(e)=>setName(e.target.value)} className="pb-1 pl-3 border-2" type="search"/>
+
+{/* <form onSubmit={test}>
+    <input  type="radio" name="a" />
+    <input  type="radio" name="a" />
+    <input  type="radio" name="a" />
+    <button onClick={test}>clear</button>
+</form> */}
 
             <form className="flex flex-col gap-4 pb-6">
+
+            <button className="pt-1 mt-2 pl-4 pr-4 pb-1 bg-blue-500 text-white" onClick={clearFilterValues}>Clear All Filter</button>
 
             <h2 className="text-start text-md font-bold">PRICE</h2>
 
@@ -45,6 +75,7 @@ function FilterOptions({setName,setType,setLowPrice,setHighPrice,setProcessor,se
             <input value="40000" type="radio" onChange={(e)=>setHighPrice(e.target.value)} name="price"/> 
 
             </div>
+
 
             <h2 className="text-start text-md font-bold">NAME</h2>
 
@@ -88,7 +119,7 @@ function FilterOptions({setName,setType,setLowPrice,setHighPrice,setProcessor,se
            <label>Oppo</label>
            <input onChange={(e)=>{setName(e.target.value)}} value="Oppo" type="radio" name="mobile-name"/>
           </div>  
-          
+
 
 <h2 className="text-start text-md font-bold">TYPE</h2>
 
@@ -237,6 +268,7 @@ function FilterOptions({setName,setType,setLowPrice,setHighPrice,setProcessor,se
             <label>Windows</label>
             <input onChange={(e)=>{setOS(e.target.value)}} value="windows" type="radio" name="OS"/>
            </div>
+
            </form>
         </div>
     )
