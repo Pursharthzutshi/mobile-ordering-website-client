@@ -9,7 +9,7 @@ function CatalogueMenu({name,type,lowPrice,highPrice,processor,memory,OS}){
 
     useEffect(()=>{
 
-        axios.get(`http://localhost:3001/showMobileDataset/showMobileDataset?name=${name}&type=${type}&lowPrice=${lowPrice}&highPrice=${highPrice}&memory=${memory}&processor=${processor}&OS=${OS}`).then((res)=>{
+        axios.get(`https://mobile-ordering-website-server.vercel.app/showMobileDataset/showMobileDataset?name=${name}&type=${type}&lowPrice=${lowPrice}&highPrice=${highPrice}&memory=${memory}&processor=${processor}&OS=${OS}`).then((res)=>{
             console.log(res);
 
             if(res.data === undefined){
